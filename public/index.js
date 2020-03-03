@@ -4,12 +4,12 @@ const socket = io();
 const video = document.querySelector("video");
 let client = {};
 
-navigator.getUserMedia =
-  navigator.getUserMedia ||
-  navigator.mozgetUserMedia ||
-  navigator.webkitgetUserMedia;
+navigator.mediaDevices.getUserMedia =
+  navigator.mediaDevices.getUserMedia ||
+  navigator.mediaDevices.mozgetUserMedia ||
+  navigator.mediaDevices.webkitgetUserMedia;
 if (navigator.getUserMedia) {
-  navigator.getUserMedia(
+  navigator.mediaDevices.getUserMedia(
     { video: true, audio: true },
     stream => {
       const meida = new MediaStream();
@@ -30,10 +30,10 @@ if (navigator.getUserMedia) {
           // other user append to dom
           videos(stream);
         });
-        peer.on("close", () => {
-          document.getElementById("other").remove();
-          peer.destroy();
-        });
+        // peer.on("close", () => {
+        //   document.getElementById("other").remove();
+        //   peer.destroy();
+        // });
         peer.on("data", function(data) {
           let decode = new TextDecoder("utf-8").decode(data);
           // blob object
