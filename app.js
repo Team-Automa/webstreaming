@@ -13,6 +13,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "/public")));
 
 const port = process.env.PORT || 3000;
+console.log(process.env.PORT);
 
 let clients = 0;
 io.on("connection", socket => {

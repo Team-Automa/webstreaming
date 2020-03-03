@@ -6,7 +6,10 @@
   "scripts": {
     "server": "nodemon app.js",
     "watch": "npx watchify ./public/index.js -o ./public/bundle.js",
-    "start": "node app.js"
+    "production": "node app.js",
+    "controller":"node controller.js",
+    "arduino":"node arduino.js",
+    "start": "concurrently \"npm run production\" \" npm run controller\"  \"npm run arduino\"  "
   },
   "keywords": [
     "peer",
@@ -17,8 +20,11 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "concurrently": "^5.1.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "mocha": "^7.1.0",
+    "mqtt": "^3.0.0",
     "simple-peer": "^9.6.2",
     "socket.io": "^2.3.0"
   },
