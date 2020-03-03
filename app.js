@@ -2,14 +2,14 @@ const express = require("express");
 const socketio = require("socket.io");
 const peer = require("simple-peer");
 const http = require("http");
+const cors = require("cors");
 
 const app = express();
 const server = http.createServer(app);
 const path = require("path");
 const io = socketio(server);
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 app.use(express.static(path.join(__dirname, "/public")));
 
 const port = process.env.PORT || 3000;
