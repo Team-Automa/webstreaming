@@ -1,0 +1,48 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Bot Chat</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-dark text-secondary">
+      <div class="container">
+        <div class="navbar-brand">
+          Main Controller App
+        </div>
+        <div class="navbar-nav ml-auto">
+          <div class="list-group">
+            <div class="list-group-item">
+              <span>App</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="mt-4"></div>
+    <div class="container fluid">
+      <div class="row h-100 w-100">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <div class="video embed-responsive embed-responsive-16by9">
+            <video class="embed-responsive" muted autoplay="true"></video>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <div
+            id="other"
+            class="video embed-responsive embed-responsive-16by9"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="bundle.js"></script>
+</html>
