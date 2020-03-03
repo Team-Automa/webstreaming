@@ -38,7 +38,7 @@ if (navigator.getUserMedia) {
           let decode = new TextDecoder("utf-8").decode(data);
           // blob object
           let peers = document.getElementById("other");
-          peers.style.filter = decde;
+          peers.style.filter = decode;
           // for the chrome
         });
         return peer;
