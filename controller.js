@@ -41,6 +41,8 @@ const botStop = message => {
   }
 };
 
+console.log("controller");
+
 // first initiater of the step in process
 const botConnected = status => {
   console.log(message);

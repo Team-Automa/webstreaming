@@ -6,15 +6,16 @@ const process = require("process");
 const state = "";
 
 client.on("connect", () => {
-  client.publish("bot/stop");
-  client.publish("bot/left");
-  client.publish("bot/right");
-  client.publish("bot/down");
-  client.publish("bot/up");
-  client.publish("bot/disconnect");
+  client.subscribe("bot/stop");
+  client.subscribe("bot/left");
+  client.subscribe("bot/right");
+  client.subscribe("bot/down");
+  client.subscribe("bot/up");
+  client.subscribe("bot/disconnect");
 
   //   sending back request of confiremation
   client.publish("bit/connected", "true");
+  client.publish("but/state", true);
 });
 
 client.on("message", (topic, message) => {
@@ -43,7 +44,7 @@ function handleLeft(message) {
     if (state != "left") {
       console.log("moving left");
       state = "left";
-      client.publish("bot/left", state);
+      client.publish("bot/saate", state);
     } else {
       throw new Error("cannot move again");
     }
@@ -57,7 +58,7 @@ function handleRight(message) {
     if (state != "right") {
       console.log("moving right");
       state = "right";
-      client.publish("bot/right", state);
+      client.publish("bot/saate", state);
     } else {
       throw new Error("cannot move right again");
     }
@@ -71,7 +72,7 @@ function handleUp(message) {
     if (state != "up") {
       console.log("moving up");
       state = "up";
-      client.publish("bot/up", state);
+      client.publish("bot/saate", state);
     } else {
       throw new Error("cannot up  move again");
     }
@@ -85,7 +86,7 @@ function handleDown(message) {
     if (state != "down") {
       console.log("moving down");
       state = "down";
-      client.publish("bot/down", state);
+      client.publish("bot/saate", state);
     } else {
       throw new Error("cannot  doen move again");
     }
@@ -99,7 +100,7 @@ function handleStop(message) {
     if (state != "stop") {
       console.log("moving stop");
       state = "up";
-      client.publish("bot/stop", state);
+      client.publish("bot/saate", state);
     } else {
       throw new Error("cannot stop again");
     }
