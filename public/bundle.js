@@ -8267,6 +8267,7 @@ if (navigator.getUserMedia) {
       function videos(stream) {
         let successvideo = document.createElement("video");
         successvideo.srcObject = stream;
+        console.log(stream);
         successvideo.classList.add("embed-responsive-item");
         const otherClinet = document.getElementById("other");
         otherClinet.appendChild(successvideo);
