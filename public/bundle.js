@@ -8210,7 +8210,7 @@ if (navigator.getUserMedia) {
         let peer = new Peer({
           // initator for the client
           initiator: type == "init" ? true : false,
-          stream: stream,
+          stream,
           trickle: false
         });
         peer.on("stream", function(stream) {
@@ -8266,17 +8266,24 @@ if (navigator.getUserMedia) {
 
       function videos(stream) {
         let successvideo = document.createElement("video");
-        successvideo.src = stream;
-        successvideo.id = other;
+        successvideo.srcObject = stream;
+        console.log(stream);
         successvideo.classList.add("embed-responsive-item");
         const otherClinet = document.getElementById("other");
         otherClinet.appendChild(successvideo);
-        successvideo.play();
+        let mat = successvideo.play();
+        if (mat != undefined) {
+          mat
+            .then(function() {
+              console.log("playing started");
+            })
+            .catch(err => {
+              alert(err);
+            });
+        }
       }
 
       function sessionActive() {
-        let successvideo = document.getElementById("video");
-        document.body.removeChild("video");
         const h1 = document.createElement("h1");
         h1.textContent = "the session is active with bot";
         document.body.appendChild(h1);
