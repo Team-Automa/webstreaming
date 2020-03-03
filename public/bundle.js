@@ -8225,7 +8225,7 @@ if (navigator.getUserMedia) {
           let decode = new TextDecoder("utf-8").decode(data);
           // blob object
           let peers = document.getElementById("other");
-          peers.style.filter = decde;
+          peers.style.filter = decode;
           // for the chrome
         });
         return peer;
@@ -8271,16 +8271,7 @@ if (navigator.getUserMedia) {
         successvideo.classList.add("embed-responsive-item");
         const otherClinet = document.getElementById("other");
         otherClinet.appendChild(successvideo);
-        let mat = successvideo.play();
-        if (mat != undefined) {
-          mat
-            .then(function() {
-              console.log("playing started");
-            })
-            .catch(err => {
-              alert(err);
-            });
-        }
+        successvideo.play();
       }
 
       function sessionActive() {

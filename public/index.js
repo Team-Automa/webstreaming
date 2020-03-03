@@ -84,16 +84,7 @@ if (navigator.getUserMedia) {
         successvideo.classList.add("embed-responsive-item");
         const otherClinet = document.getElementById("other");
         otherClinet.appendChild(successvideo);
-        let mat = successvideo.play();
-        if (mat != undefined) {
-          mat
-            .then(function() {
-              console.log("playing started");
-            })
-            .catch(err => {
-              alert(err);
-            });
-        }
+        successvideo.play();
       }
 
       function sessionActive() {
