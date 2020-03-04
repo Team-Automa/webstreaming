@@ -5,7 +5,6 @@ const process = require("process");
 
 
 try {
-
     let state = "";
 
     client.on("connect", () => {

@@ -7,8 +7,8 @@
     "server": "nodemon app.js",
     "watch": "npx watchify ./public/index.js -o ./public/bundle.js",
     "production": "node app.js",
-    "controller":"node controller.js",
-    "arduino":"node arduino.js",
+    "controller": "node controller.js",
+    "arduino": "node arduino.js",
     "start": "concurrently \"npm run production\" \" npm run controller\"  \"npm run arduino\"  "
   },
   "keywords": [

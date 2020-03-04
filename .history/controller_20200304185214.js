@@ -2,10 +2,10 @@ const myqtt = require("mqtt");
 try {
     const client = myqtt.connect("mqtt://soilder.cloudmqtt.com");
 
-    let connected = false;
-    let state = "";
-    let motion_moves = ["left", "right", "up", "down", "stop"];
-    let errors = {};
+    const connected = false;
+    const state = "";
+    const motion_moves = ["left", "right", "up", "down", "stop"];
+    const errors = {};
 
     // init the connection
     client.on("connect", () => {
@@ -45,7 +45,7 @@ try {
 
 
     // first initiater of the step in process
-    const botConnected = message => {
+    const botConnected = status => {
         console.log(message);
         connected = message ? 'true' : false;
     };
